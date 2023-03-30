@@ -5,9 +5,13 @@ using UnityEngine.UI;
 using MySql;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class AutorizationScript : MonoBehaviour
 {
+    [SerializeField] SceneAsset Scene_AdminPanel;
+
     private GameObject autorizationPanel;
 
     private Text loginError;
@@ -72,12 +76,15 @@ public class AutorizationScript : MonoBehaviour
 
         connection.Close();
 
-        foreach (string login in logins)
+        if (logins.Contains(loginText.text)) 
+        { 
+            PasswordCheck();
+            loginError.gameObject.SetActive(false);
+        }
+        else
         {
-            if (login == loginText.text)
-            {
-                PasswordCheck();
-            }
+            loginError.gameObject.SetActive(true);
+            loginError.text = "Такого логина не существует!";
         }
     }
 
@@ -109,6 +116,7 @@ public class AutorizationScript : MonoBehaviour
             connection.Close();
 
             UserSet(id);
+            LoadScene();
         }
         else
         {
@@ -138,5 +146,20 @@ public class AutorizationScript : MonoBehaviour
             userInfo.Add(userInfoReader.GetString(i));
         }
         connection.Close();
+
+        User.login = userInfo[0];
+        User.password = userInfo[1];
+        User.role = userInfo[2];
+        User.name = userInfo[3];
+        User.surname = userInfo[4];
+        User.age = userInfo[5];
+    }
+
+    void LoadScene()
+    {
+        if (User.login == "admin")
+        {
+            SceneManager.LoadScene(Scene_AdminPanel.name);
+        }
     }
 }

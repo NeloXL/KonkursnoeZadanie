@@ -675,6 +675,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1099b52b962e4504ba91365cec5d5d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Autorization: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+  AdminPanel: {fileID: 102900000, guid: db1f9b4973863e747afa1ad698f7cd8b, type: 3}
 --- !u!1 &964422446
 GameObject:
   m_ObjectHideFlags: 0
