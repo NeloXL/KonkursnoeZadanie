@@ -147,12 +147,12 @@ public class AutorizationScript : MonoBehaviour
         }
         connection.Close();
 
-        User.login = userInfo[0];
-        User.password = userInfo[1];
-        User.role = userInfo[2];
-        User.name = userInfo[3];
-        User.surname = userInfo[4];
-        User.age = userInfo[5];
+        User.login = userInfo[1];
+        User.password = userInfo[2];
+        User.role = userInfo[3];
+        User.name = userInfo[4];
+        User.surname = userInfo[5];
+        User.age = userInfo[6];
     }
 
     void LoadScene()

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class CreateUserPanelScript : MonoBehaviour
 {
-    [SerializeField] SceneAsset Scene_Autorization;
+    [SerializeField] SceneAsset Scene_AdminPanel;
 
     [SerializeField] GameObject Panel;
     [SerializeField] Text Error;
@@ -69,6 +69,6 @@ public class CreateUserPanelScript : MonoBehaviour
 
     public void Back()
     {
-        SceneManager.LoadScene(Scene_Autorization.name);
+        SceneManager.LoadScene(Scene_AdminPanel.name);
     }
 }

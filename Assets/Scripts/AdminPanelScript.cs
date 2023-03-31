@@ -9,14 +9,17 @@ using UnityEngine.UI;
 public class AdminPanelScript : MonoBehaviour
 {
     GameObject PrefabTitleObject;
+    GameObject PrefabUsersTempltaObject;
 
-    [SerializeField] Transform PanelTransform;
+    [SerializeField] Transform UsersTemplateTransform;
 
     [SerializeField] SceneAsset Scene_CreateUser;
 
     private void Start()
     {
+        PrefabUsersTempltaObject = Resources.Load<GameObject>("Users");
         PrefabTitleObject = Resources.Load<GameObject>("User");
+
         List<string> Names = new List<string>();
         List<string> Surnames = new List<string>();
         List<string> Roles = new List<string>();
@@ -41,15 +44,21 @@ public class AdminPanelScript : MonoBehaviour
 
         connection.Close();
 
-        for (int i = 0; i < Names.Count; i++)
+        int recordsCount = Names.Count;
+
+        GameObject UsersTemplate = Instantiate(PrefabUsersTempltaObject, UsersTemplateTransform);
+        UsersTemplate.GetComponent<ScrollRect>().viewport = UsersTemplateTransform.GetComponent<RectTransform>();
+        UsersTemplate.GetComponent<RectTransform>().offsetMax = new Vector2(0f, recordsCount * 100f);
+
+        for (int i = 0; i < recordsCount; i++)
         {
-            ShowRecord(Names[i], Surnames[i], Roles[i]);
+            ShowRecord(Names[i], Surnames[i], Roles[i], UsersTemplate.transform);
         }
     }
 
-    void ShowRecord(string Name, string Surname, string Role)
+    void ShowRecord(string Name, string Surname, string Role, Transform UsersTemplate)
     {
-        GameObject Record = Instantiate(PrefabTitleObject, PanelTransform);
+        GameObject Record = Instantiate(PrefabTitleObject, UsersTemplate);
         Record.GetComponentsInChildren<Text>()[0].text = Name + " " + Surname;
         Record.GetComponentsInChildren<Text>()[1].text = Role;
     }
