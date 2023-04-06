@@ -18,8 +18,8 @@ public class AdminPanelScript : MonoBehaviour
 
     private void Start()
     {
-        PrefabUsersTempltaObject = Resources.Load<GameObject>("Users");
-        PrefabTitleObject = Resources.Load<GameObject>("User");
+        PrefabUsersTempltaObject = Resources.Load<GameObject>(@"AdminPanelPrefabs\Users");
+        PrefabTitleObject = Resources.Load<GameObject>(@"AdminPanelPrefabs\User");
 
         List<string> Names = new List<string>();
         List<string> Surnames = new List<string>();
@@ -68,7 +68,7 @@ public class AdminPanelScript : MonoBehaviour
     {
         SceneManager.LoadScene(Scene_CreateUser.name);
     }
-
+    
     public void Back()
     {
         SceneManager.LoadScene(Scene_Auutorization.name);
