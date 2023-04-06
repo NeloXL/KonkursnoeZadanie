@@ -10,7 +10,7 @@ using UnityEngine.UI;
 public class CreateUserPanelScript : MonoBehaviour
 {
     [SerializeField] SceneAsset Scene_AdminPanel;
-
+    //
     [SerializeField] GameObject Panel;
     [SerializeField] Text Error;
 
