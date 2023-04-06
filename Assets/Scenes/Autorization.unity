@@ -676,6 +676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Scene_AdminPanel: {fileID: 102900000, guid: db1f9b4973863e747afa1ad698f7cd8b, type: 3}
+  Scene_TeacherPanel: {fileID: 102900000, guid: 6f1d26ed2d2f66f4987cd03748142a3b, type: 3}
 --- !u!1 &964422446
 GameObject:
   m_ObjectHideFlags: 0

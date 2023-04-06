@@ -11,6 +11,7 @@ using UnityEngine.SceneManagement;
 public class AutorizationScript : MonoBehaviour
 {
     [SerializeField] SceneAsset Scene_AdminPanel;
+    [SerializeField] SceneAsset Scene_TeacherPanel;
 
     private GameObject autorizationPanel;
 
@@ -157,9 +158,13 @@ public class AutorizationScript : MonoBehaviour
 
     void LoadScene()
     {
-        if (User.login == "admin")
+        if (User.role == "Администратор")
         {
             SceneManager.LoadScene(Scene_AdminPanel.name);
+        }
+        if (User.role == "Учитель")
+        {
+            SceneManager.LoadScene(Scene_TeacherPanel.name);
         }
     }
 }

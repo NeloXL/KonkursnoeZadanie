@@ -2,11 +2,15 @@ using MySql.Data.MySqlClient;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TeacherPanel : MonoBehaviour
 {
+    [SerializeField] SceneAsset Scene_CreateUser;
+    [SerializeField] SceneAsset Scene_Autorization;
 
     private GameObject ExercisePrefab;
     [SerializeField] private Transform PanelTransform;
@@ -42,5 +46,10 @@ public class TeacherPanel : MonoBehaviour
         }
 
         PanelTransform.GetComponent<RectTransform>().offsetMax = new Vector2(0f, id_Exercise_Dict.Count * 30f);
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene(Scene_Autorization.name);
     }
 }

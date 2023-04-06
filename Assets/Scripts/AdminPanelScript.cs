@@ -14,7 +14,7 @@ public class AdminPanelScript : MonoBehaviour
     [SerializeField] Transform UsersTemplateTransform;
 
     [SerializeField] SceneAsset Scene_CreateUser;
-    [SerializeField] SceneAsset Scene_Auutorization;
+    [SerializeField] SceneAsset Scene_Autorization;
 
     private void Start()
     {
@@ -71,6 +71,6 @@ public class AdminPanelScript : MonoBehaviour
     
     public void Back()
     {
-        SceneManager.LoadScene(Scene_Auutorization.name);
+        SceneManager.LoadScene(Scene_Autorization.name);
     }
 }
